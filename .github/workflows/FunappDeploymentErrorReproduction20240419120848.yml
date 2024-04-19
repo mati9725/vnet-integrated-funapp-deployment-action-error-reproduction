@@ -1,13 +1,10 @@
-name: Build and deploy .NET Core application to Function App funapp-deployment-action-error-reproduction
+name: Build and deploy .NET Core application to Function App FunappDeploymentErrorReproduction20240419120848
 on:
   push:
     branches:
     - master
-
-  workflow_dispatch: 
-    
 env:
-  AZURE_FUNCTIONAPP_NAME: funapp-deployment-action-error-reproduction
+  AZURE_FUNCTIONAPP_NAME: FunappDeploymentErrorReproduction20240419120848
   AZURE_FUNCTIONAPP_PACKAGE_PATH: FunappDeploymentErrorReproduction/published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -41,11 +38,9 @@ jobs:
       with:
         name: functionapp
         path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-    - name: Check PublishProfile value
-      run: echo ${{secrets.funapp_deployment_action_error_reproduction_52E9}} | sed 's/./& /g'
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        publish-profile: ${{ secrets.funapp_deployment_action_error_reproduction_52E9 }}
+        publish-profile: ${{ secrets.FunappDeploymentErrorReproduction20240419120848_83B9 }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
