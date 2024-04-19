@@ -42,7 +42,7 @@ jobs:
         name: functionapp
         path: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
     - name: Check PublishProfile value
-      run: echo ${{secrets.funapp_deployment_action_error_reproduction_52E9}} | sed 's/./& /g'
+      run: echo '${{secrets.funapp_deployment_action_error_reproduction_52E9}}' | sed 's/./& /g'
     - name: Deploy to Azure Function App
       uses: Azure/functions-action@v1
       with:
